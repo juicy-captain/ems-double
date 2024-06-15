@@ -1,0 +1,148 @@
+@import "./reset.scss";
+
+:root {
+  --font-family: "Manrope", "Helvetica", "Arial", sans-serif;
+  --text-color: #727272;
+  --white-color: #ffffff;
+  --button-blue: #244c98;
+  --title-color: #1f4284;
+  --card-bg: #f0f4fc;
+}
+
+html {
+  font-family: var(--font-family);
+  font-optical-sizing: auto;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: antialiased;
+  text-rendering: optimizeLegibility;
+  line-height: 1.6;
+}
+
+main {
+  padding: 14px 24px;
+  background: var(--white-color);
+}
+
+.card {
+  display: grid;
+  background: var(--card-bg);
+  text-align: start;
+  border-radius: 10px;
+  overflow: hidden;
+
+  @media (min-width: 1280px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__content {
+    padding: 24px 24px 18px;
+
+    @media (min-width: 768px) {
+      padding-bottom: 24px;
+    }
+
+    @media (min-width: 1280px) {
+      max-width: 660px;
+      padding: 24px 36px;
+    }
+
+    @media (min-width: 1440px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 24px 72px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 14px;
+    font-weight: 500;
+    font-size: 17px;
+    color: var(--title-color);
+
+    @media (min-width: 768px) {
+      margin-bottom: 18px;
+      font-size: 20px;
+    }
+
+    @media (min-width: 1440px) {
+      font-size: 26px;
+    }
+
+    @media (min-width: 1920px) {
+      font-size: 30px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 18px;
+    font-size: 13px;
+    color: var(--text-color);
+
+    @media (min-width: 768px) {
+      margin-bottom: 24px;
+      font-size: 15px;
+    }
+    @media (min-width: 1440px) {
+      margin-bottom: 36px;
+      font-size: 17px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    max-width: 310px;
+    width: 100%;
+    border-radius: 60px;
+    padding: 10px;
+    padding-inline-start: 18px;
+    background: var(--button-blue);
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--white-color);
+    cursor: pointer;
+
+    @media (min-width: 768px) {
+      width: fit-content;
+      min-width: 260px;
+    }
+
+    @media (min-width: 1440px) {
+      font-size: 18px;
+      padding: 12px;
+      padding-inline-start: 24px;
+      min-width: 340px;
+    }
+  }
+
+  &__button-icon {
+    display: inline-flex;
+    padding: 6px;
+    background: var(--white-color);
+    border-radius: 40px;
+    width: 36px;
+    height: 36px;
+
+    @media (min-width: 1440px) {
+      padding: 4px;
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  &__img {
+    img,
+    source {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}

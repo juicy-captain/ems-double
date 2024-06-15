@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..500&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="style.min.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <main>
+      <section class="card">
+        <div class="card__content">
+          <p class="card__title">Демо-версия</p>
+          <p class="card__text">
+            За 18 лет деятельности было реализовано более 500 крупных, а так же,
+            не менее 2500 средних и малых проектов. Используя знания и
+            накопленный опыт мы можем предложить
+          </p>
+          <button class="card__button">
+            Попробовать бесплатно
+            <span class="card__button-icon">
+              <img src="arrow.svg" alt="" />
+            </span>
+          </button>
+        </div>
+        <picture class="card__img">
+          <source media="(min-width:1920px)" srcset="/img/card-image-xl.webp" />
+          <source
+            media="(min-width:1440px)"
+            srcset="/img/card-image-desktop.webp" />
+          <source
+            media="(min-width:768px)"
+            srcset="/img/card-image-tablet.webp" />
+          <img src="/img/card-image-small.webp" alt="card image" />
+        </picture>
+      </section>
+    </main>
+  </body>
+</html>
