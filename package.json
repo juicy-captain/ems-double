@@ -1,10 +1,10 @@
 {
   "name": "demo",
   "source": "src/index.html",
+  "homepage": "https://juicy-captain.github.io/ems-double/",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "rm -rf dist/ && npm run start && gh-pages -d dist"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.12.0",
