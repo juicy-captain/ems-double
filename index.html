@@ -25,7 +25,7 @@
           <button class="card__button">
             Попробовать бесплатно
             <span class="card__button-icon">
-              <img src="arrow.svg" alt="" />
+              <img src="/img/arrow.svg" alt="" />
             </span>
           </button>
         </div>
@@ -40,6 +40,41 @@
           <img src="/img/card-image-small.webp" alt="card image" />
         </picture>
       </section>
+
+      <div style="margin-top: 50px">
+        <div class="modal">
+          <button class="modal__close">
+            <img src="/img/close.svg" alt="close" />
+          </button>
+          <div class="modal__content">
+            <p class="modal__title">Войти в систему</p>
+            <form class="modal__form" action="">
+              <input
+                class="modal__input"
+                type="text"
+                placeholder="Email/Телефон" />
+              <input
+                class="modal__input"
+                type="password"
+                placeholder="Пароль" />
+
+              <div class="form-group">
+                <input type="checkbox" id="remember" />
+                <label for="remember">Запомнить пароль</label>
+              </div>
+
+              <a class="modal__recovery-link" href="">Восстановить</a>
+
+              <button class="modal__button _primary" type="submit">
+                Войти
+              </button>
+              <button class="modal__button _secondary">
+                Зарегестрироваться
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </main>
   </body>
 </html>

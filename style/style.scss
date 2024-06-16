@@ -1,12 +1,94 @@
 @import "./reset.scss";
 
+$button-blue: #244c98;
+$change: 10%;
+
+@mixin hover {
+  @media not all and (hover: none) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
 :root {
   --font-family: "Manrope", "Helvetica", "Arial", sans-serif;
   --text-color: #727272;
   --white-color: #ffffff;
   --button-blue: #244c98;
+  --button-blue-dark: #{darken($button-blue, $change)};
   --title-color: #1f4284;
+  --modal-bg: #f0f4fc;
+  --modal-title: #323232;
   --card-bg: #f0f4fc;
+  --input-bg: #d7e2f6;
+  --input-text: #1f4284;
+  --button-secondary: #f0f4fc;
+  --checkbox-border: #323232;
+  --checkbox-label-color: #323232;
+}
+
+input {
+  width: 100%;
+
+  &:not(:last-of-type) {
+    margin-bottom: 4px;
+  }
+
+  &:last-of-type {
+    margin-bottom: 24px;
+  }
+}
+
+.form-group {
+  display: block;
+  margin-bottom: 24px;
+}
+
+.form-group input {
+  padding: 0;
+  height: initial;
+  width: initial;
+  margin-bottom: 0;
+  display: none;
+  cursor: pointer;
+}
+
+.form-group label {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: var(--checkbox-label-color);
+  cursor: pointer;
+}
+
+.form-group label:before {
+  content: "";
+  border: 2px solid var(--checkbox-border);
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.form-group input:checked + label:after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset-inline-start: 0;
+  width: 18px;
+  height: 6px;
+  background-image: url('data:image/svg+xml;charset=UTF-8, <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 3L3 5L7 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  line-height: 18px;
 }
 
 html {
@@ -107,7 +189,13 @@ main {
     font-weight: 500;
     font-size: 15px;
     color: var(--white-color);
+    transition: 0.3s ease-in;
     cursor: pointer;
+
+    @include hover {
+      transform: translateY(-4px);
+      background: var(--button-blue-dark);
+    }
 
     @media (min-width: 768px) {
       width: fit-content;
@@ -143,6 +231,97 @@ main {
       display: block;
       max-width: 100%;
       height: auto;
+    }
+  }
+}
+
+.modal {
+  padding: 24px;
+  max-width: 500px;
+  width: 100%;
+  background: var(--modal-bg);
+
+  &__close {
+    display: flex;
+    margin-inline-start: auto;
+    border-radius: 10px;
+    padding: 14px;
+    background: var(--white-color);
+    transition: background 0.3s ease-in;
+    cursor: pointer;
+
+    @include hover {
+      background: darken(#ffffff, 2%);
+    }
+  }
+
+  &__title {
+    margin-bottom: 18px;
+    font-weight: 500;
+    font-size: 24px;
+    color: var(--modal-title);
+  }
+
+  &__input {
+    border-radius: 10px;
+    padding: 24px;
+    background: var(--input-bg);
+    color: var(--input-text);
+
+    &::placeholder {
+      opacity: 1;
+      color: var(--input-text);
+    }
+  }
+
+  &__button {
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    padding: 18px 12px;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--white-color);
+    text-align: center;
+    transition: 0.3s ease-in;
+    cursor: pointer;
+
+    &:not(:last-of-type) {
+      margin-bottom: 4px;
+    }
+
+    &._primary {
+      background: var(--button-blue);
+      border: 1px solid var(--button-blue);
+
+      @include hover {
+        background: var(--button-blue-dark);
+      }
+    }
+
+    &._secondary {
+      background: var(--button-secondary);
+      border: 1px solid var(--button-blue);
+      color: var(--button-blue);
+
+      @include hover {
+        background: var(--button-blue);
+        color: var(--white-color);
+      }
+    }
+  }
+
+  &__recovery-link {
+    display: inline-block;
+    margin-bottom: 36px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 130%;
+    color: var(--button-blue);
+    transition: 0.3s ease-in;
+
+    @include hover {
+      color: var(--button-blue-dark);
     }
   }
 }
