@@ -1,10 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const modal = document.querySelector(".modal-overlay");
-  const closeButton = document.querySelector(".modal__close");
-  const modalButton = document.querySelector(".modal__button");
-  const openButton = document.querySelector("._openModal");
+  const modal = document.querySelector(".modal-overlay") as HTMLDivElement;
+  const closeButton = document.querySelector(
+    ".modal__close",
+  ) as HTMLButtonElement;
+  const modalButton = document.querySelector(
+    ".modal__button",
+  ) as HTMLButtonElement;
+  const openButton = document.querySelector("._openModal") as HTMLButtonElement;
 
-  function openModal() {
+  function openModal(): void {
     modal.classList.add("_show");
 
     setTimeout(() => {
@@ -13,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 300);
   }
 
-  function closeModal() {
+  function closeModal(): void {
     modal.style.opacity = "0";
     modal.style.visibility = "hidden";
 
@@ -22,8 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 300);
   }
 
-  function clickOutside({ target }) {
-    const targetElement = target;
+  function clickOutside({ target }: MouseEvent): void {
+    const targetElement: HTMLElement = target as HTMLElement;
     if (!targetElement.closest(".modal")) {
       closeModal();
     }
