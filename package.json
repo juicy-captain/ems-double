@@ -1,7 +1,7 @@
 {
   "name": "demo",
   "source": "src/index.html",
-  "homepage": "https://juicy-captain.github.io/ems-double/",
+  "homepage": "https://juicy-captain.github.io/ems-double",
   "scripts": {
     "start": "parcel",
     "deploy": "rm -rf dist/ && npm run start && gh-pages -d dist"
